@@ -19,6 +19,8 @@ var {
 
 var app = express();
 
+const port = process.env.PORT || 3000;
+
 //middleware
 app.use(bodyParser.json());
 
@@ -72,8 +74,8 @@ app.get('/todos/:id', (req, res) => {
 
 });
 
-app.listen(3000, () => {
-  console.log('server running on localhost:3000');
+app.listen(port, () => {
+  console.log(`server running on localhost:${port}`);
 });
 
 module.exports = {
