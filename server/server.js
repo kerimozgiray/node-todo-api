@@ -32,6 +32,18 @@ app.post('/todos', (req, res) => {
   });
 });
 
+app.get('/todos', (req, res) => {
+
+  Todo.find().then((todos) => {
+    res.send({
+      todos
+    })
+  }, (err) => {
+    res.status(400).send(err);
+  });
+
+});
+
 app.listen(3000, () => {
   console.log('server running on localhost:3000');
 });
